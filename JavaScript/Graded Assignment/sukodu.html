@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isValidSudoku(board) {
+            const rows = Array(9).fill(null).map(() => new Set());
+            const columns = Array(9).fill(null).map(() => new Set());
+            const boxes = Array(9).fill(null).map(() => new Set());
+
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    const cell = board[i][j];
+
+                    if (cell === ".") {
+                        continue; // Skip empty cells
+                    }
+
+                    // Check row
+                    if (rows[i].has(cell)) {
+                        return false;
+                    }
+                    rows[i].add(cell);
+
+                    // Check column
+                    if (columns[j].has(cell)) {
+                        return false;
+                    }
+                    columns[j].add(cell);
+
+                    // Check 3x3 box
+                    const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+                    if (boxes[boxIndex].has(cell)) {
+                        return false;
+                    }
+                    boxes[boxIndex].add(cell);
+                }
+            }
+
+            return true;
+        }
+
+        // Test case
+        const board = [
+            ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+            ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+            [".", "9", "8", ".", ".", ".", ".", "6", "."],
+            ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+            ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+            ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+            [".", "6", ".", ".", ".", ".", "2", "8", "."],
+            [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+            [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+        ];
+
+        console.log(isValidSudoku(board)); // Output: true
+
+    </script>
+</body>
+
+</html>

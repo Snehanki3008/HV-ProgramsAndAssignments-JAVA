@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Sample array of customer objects
+        const customers = [
+            { customerID: 1, customerName: "John", totalBillingAmount: 2500 },
+            { customerID: 2, customerName: "Alice", totalBillingAmount: 3200 },
+            { customerID: 3, customerName: "Bob", totalBillingAmount: 2800 },
+            { customerID: 4, customerName: "Eve", totalBillingAmount: 4000 },
+        ];
+
+        // Filter customers with a total billing amount greater than Rs. 3000
+        const selectedCustomers = customers.filter((customer) => customer.totalBillingAmount > 3000);
+
+        // Map selected customers to their names and purchase details
+        const customerDetails = selectedCustomers.map((customer) => {
+            const { customerName, totalBillingAmount } = customer;
+            return {
+                customerName,
+                purchaseDetails: `Total Billing Amount: Rs. ${totalBillingAmount}`,
+            };
+        });
+
+        // Reduce the customer details to a single string
+        const result = customerDetails.reduce((accumulator, customer) => {
+            return accumulator + `${customer.customerName}: ${customer.purchaseDetails}\n`;
+        }, "");
+
+        // Print the list of selected customers and their purchase details
+        console.log("Customers with total billing amount > Rs. 3000:");
+        console.log(result);
+
+
+    </script>
+</body>
+
+</html>
