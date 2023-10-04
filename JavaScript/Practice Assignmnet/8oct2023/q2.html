@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calculateAverage(arr) {
+            if (arr.length === 0) {
+                return 0;
+            }
+
+            const sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            const average = sum / arr.length;
+
+            return average;
+        }
+
+
+        const inputArray = [5, 10, 15, 20];
+
+
+        const result = calculateAverage(inputArray);
+
+
+        console.log(result);
+
+    </script>
+
+</body>
+
+</html>

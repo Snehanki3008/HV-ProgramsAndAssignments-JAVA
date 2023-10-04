@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrime(number) {
+            if (number <= 1) {
+              return false;
+            }
+            if (number <= 3) {
+              return true;
+            }
+            if (number % 2 === 0 || number % 3 === 0) {
+              return false;
+            }
+          
+            for (let i = 5; i * i <= number; i += 6) {
+              if (number % i === 0 || number % (i + 2) === 0) {
+                return false;
+              }
+            }
+          
+            return true;
+          }
+          
+          function countPrimesInRange(start, end) {
+            let count = 0;
+          
+            for (let number = start; number <= end; number++) {
+              if (isPrime(number)) {
+                count++;
+              }
+            }
+          
+            return count;
+          }
+          
+          
+          const start = 1;
+          const end = 20;
+          
+          
+          const primeCount = countPrimesInRange(start, end);
+          
+         
+          console.log(`The number of prime numbers between ${start} and ${end}: ${primeCount}`);
+          
+    </script>
+</body>
+</html>

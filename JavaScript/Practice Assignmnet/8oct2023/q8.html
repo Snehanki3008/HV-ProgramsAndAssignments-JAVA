@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function searchContact(contactList, name) {
+            if (contactList.hasOwnProperty(name)) {
+              const phoneNumber = contactList[name];
+              return `The phone number for ${name} is ${phoneNumber}.`;
+            } else {
+              return `Contact ${name} does not exist in the list.`;
+            }
+          }
+          
+          
+          const contactList = {
+            "John Doe": "123-456-7890",
+            "Emma Smith": "987-654-3210"
+          };
+          
+          const nameToSearch = "Emma Smith";
+          
+          
+          const result = searchContact(contactList, nameToSearch);
+          
+          
+          console.log(result);
+          
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function countOccurrences(arr) {
+            const elementCounts = {};
+
+            for (const element of arr) {
+                if (elementCounts[element]) {
+
+                    elementCounts[element]++;
+                } else {
+
+                    elementCounts[element] = 1;
+                }
+            }
+
+            return elementCounts;
+        }
+
+
+        const inputArray = [1, 2, 3, 2, 4, 1, 5];
+
+
+        const result = countOccurrences(inputArray);
+
+
+        console.log(result);
+
+    </script>
+</body>
+
+</html>
